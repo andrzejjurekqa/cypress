@@ -1,3 +1,5 @@
+import 'cypress-iframe';
+
 
 describe('template spec', () => {
   it('passes', () => {
@@ -76,7 +78,7 @@ describe('template spec', () => {
     })
   })
   it('goes through the list', () => {
-    cy.visit('https://rahulshettyacademy.com/AutomationPractice/');
+    cy.visit('https://rahulshettyacademy.com/AutomationPractice/')
     //loop through
     cy.get('tr td:nth-child(2)').each(($el, index) => {
       const courseText = $el.text()
@@ -92,7 +94,7 @@ describe('template spec', () => {
     })
   })
   it('covers the hover', () => {
-    cy.visit('https://rahulshettyacademy.com/AutomationPractice/');
+    cy.visit('https://rahulshettyacademy.com/AutomationPractice/')
     //no support for hover, but workarounds exist
     cy.get('div.mouse-hover-content').invoke('show')
     cy.contains('Top').click()
@@ -100,11 +102,11 @@ describe('template spec', () => {
     cy.get('div.mouse-hover-content').invoke('show')
     cy.contains('Reload').click()
     cy.url().should('not.include', 'top')
-    cy.contains('Top').click({force: true})
+    cy.contains('Top').click({ force: true })
     cy.url().should('include', 'top')
   })
-  it.only('goes throug Name list', () => {
-    cy.visit('https://rahulshettyacademy.com/AutomationPractice/');
+  it('goes throug Name list', () => {
+    cy.visit('https://rahulshettyacademy.com/AutomationPractice/')
     cy.get('tr td:nth-child(2)').each(($el, index, $list) => {
       const positiontext = $el.text()
       if (positiontext === 'Businessman') {
@@ -112,6 +114,30 @@ describe('template spec', () => {
           expect(city.text()).to.equal('Mumbai')
         })
       }
+    })
+  })
+  it('iframes', () => {
+    cy.visit('https://rahulshettyacademy.com/AutomationPractice/')
+    cy.frameLoaded('#courses-iframe')
+    cy.iframe().find('a[href*="mentorship"]').eq(0).click()
+    cy.iframe().find('h1[class*="pricing-title"]').should('have.length', 0)
+  })
+  it.only('handles calendars', () => {
+
+    const year = '2025';
+    const month = '5';
+    const day = '11';
+    const list = [month, day, year];
+
+    cy.visit('https://rahulshettyacademy.com/seleniumPractise/#/offers')
+    cy.get('.react-date-picker__calendar-button').click()
+    cy.get('.react-calendar__navigation__label').click()
+    cy.get('.react-calendar__navigation__label').click()
+    cy.contains(year).click()
+    cy.get('.react-calendar__year-view__months__month').eq(Number(month) - 1).click()
+    cy.contains(day).click()
+    cy.get('.react-date-picker__inputGroup__input').each(($el, index) => {
+      cy.wrap($el).invoke('val').should('eq', list[index])
     })
   })
 })
