@@ -1,9 +1,12 @@
 class ShopPage {
-    checkout(){
+    checkout() {
         return cy.get('.nav-link.btn.btn-primary')
     }
-    orderList() {
+    orderListName() {
         return cy.get('h4.media-heading')
+    }
+    orderListPrice() {
+        return cy.get('tr td:nth-child(4) strong')
     }
 }
 

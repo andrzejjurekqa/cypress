@@ -6,7 +6,7 @@ class HomePage {
     genderSelect() {
         return cy.get('select')
     }
-    dataBind(){
+    dataBind() {
         return cy.get(':nth-child(4) > .ng-untouched')
     }
     enterprenourCheck() {
@@ -18,7 +18,7 @@ class HomePage {
     productList() {
         return cy.get('h4.card-title')
     }
-    addButton(){
+    addButton() {
         return cy.get('button.btn.btn-info')
     }
 }

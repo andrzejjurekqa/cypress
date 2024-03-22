@@ -1,15 +1,21 @@
 class CheckoutPage {
-    inputField(){
+    inputField() {
         return cy.get('.validate.filter-input')
     }
-    checkbox(){
+    suggestion() {
+        return cy.get('.suggestions > ul > li > a')
+    }
+    checkbox() {
         return cy.get('#checkbox2')
     }
-    purchaseButton(){
+    purchaseButton() {
         return cy.get('.btn.btn-success.btn-lg')
     }
-    alert(){
+    alert() {
         return cy.get('.alert')
+    }
+    checkout() {
+        return cy.get('.btn.btn-success')
     }
 }
 
