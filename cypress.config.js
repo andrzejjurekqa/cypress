@@ -3,7 +3,8 @@ const { defineConfig } = require("cypress");
 module.exports = defineConfig({
   defaultCommandTimeout: 4000,
   env:  {
-    url: "https://rahulshettyacademy.com/"
+    url: "https://rahulshettyacademy.com/",
+    url2: 'https://todo.qacart.com/api/v1/tasks/',
   },
 
   retries: {

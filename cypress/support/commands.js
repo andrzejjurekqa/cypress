@@ -16,6 +16,16 @@ Cypress.Commands.add('getProduct', (productName) => {
         }
     })
 })
+
+Cypress.Commands.add('sendRequest', (method, url, access_token, body) => {
+    cy.request({
+        method: method,
+        url: url,
+        body: body,
+        headers: { Authorization: `Bearer ${access_token}` }
+    })
+})
+
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
 //
