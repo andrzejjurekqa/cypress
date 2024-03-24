@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-        "test": "npx cypress run",
-        "headTest": "npm run test --headed",
-        "chromeTest": "npm run test --browser chrome"
+    "test": "npx cypress run",
+    "headTest": "npm run test --headed",
+    "chromeTest": "npm run test --browser chrome",
+    "recordDashBoardTest": "npm run test --record --key 1d846f40-c52d-44bf-9b7c-74fbf1d9de38 --reporter mochawesome",
+    "GreenKartTest": "npm run test --spec \"cypress/integration/GreenKart/*\""
   },
   "author": "",
   "license": "ISC",
