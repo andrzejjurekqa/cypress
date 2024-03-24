@@ -1,6 +1,6 @@
 describe('API Specs', () => {
     beforeEach(function () {
-        cy.fixture('reqresPOST.json').then(function (data) {
+        cy.fixture('rrsPOST').then(function (data) {
             this.data = data
         })
     })
