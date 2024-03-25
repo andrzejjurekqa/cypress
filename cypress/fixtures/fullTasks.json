@@ -1,0 +1,36 @@
+{
+    "tasks": [
+        {
+            "isCompleted": false,
+            "_id": "66014534f996c80014487335",
+            "item": "the first one",
+            "userID": "6600afc4f996c80014486fbc",
+            "createdAt": "2024-03-25T09:34:44.261Z",
+            "__v": 0
+        },
+        {
+            "isCompleted": false,
+            "_id": "6601467bf996c80014487351",
+            "item": "asddasads",
+            "userID": "6600afc4f996c80014486fbc",
+            "createdAt": "2024-03-25T09:40:11.906Z",
+            "__v": 0
+        },
+        {
+            "isCompleted": false,
+            "_id": "66014680f996c80014487354",
+            "item": "dsaasddasasd",
+            "userID": "6600afc4f996c80014486fbc",
+            "createdAt": "2024-03-25T09:40:16.074Z",
+            "__v": 0
+        },
+        {
+            "isCompleted": false,
+            "_id": "66014682f996c80014487357",
+            "item": "dadasdasdas",
+            "userID": "6600afc4f996c80014486fbc",
+            "createdAt": "2024-03-25T09:40:18.286Z",
+            "__v": 0
+        }
+    ]
+}
