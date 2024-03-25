@@ -1,0 +1,17 @@
+[
+    {
+        "book_name": "Learning API automation using postman",
+        "isbn": "RS16",
+        "aisle": "444455"
+    },
+    {
+        "book_name": "Learning API automation using postman",
+        "isbn": "RS177",
+        "aisle": "444455"
+    },
+    {
+        "book_name": "Learning API automation using postman",
+        "isbn": "RS601",
+        "aisle": "444455"
+    }
+]

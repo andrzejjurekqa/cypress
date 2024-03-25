@@ -9,7 +9,8 @@ describe('Mock QA Kart', () => {
         }).then((request) => {
             expect(request.status).to.eq(200)
             access_token = request.body.access_token;
-        }).then(() => {
+        })
+        .then(() => {
             cy.request({
                 method: 'POST',
                 url: 'https://todo.qacart.com/api/v1/tasks',
@@ -21,16 +22,18 @@ describe('Mock QA Kart', () => {
             });
         });
     });
-    after(() => {
+    afterEach(() => {
         cy.request({
             method: 'DELETE',
             url: 'https://todo.qacart.com/api/v1/tasks/' + taskID,
-            body: { item: "123442134", isCompleted: true },
+            body: { item: "this one?", isCompleted: false },
             headers: { Authorization: `Bearer ${access_token}` }
-        });
+        }).then((request) => {
+            expect(request.status).to.eq(200)
+        })
     });
-    it('Mock qa cart full', async () => {
-        await cy.intercept("GET", "https://todo.qacart.com/api/v1/tasks", {
+    it('Mock qa cart full', () => {
+        cy.intercept("GET", "https://todo.qacart.com/api/v1/tasks", {
             fixture: "fullTasks.json"
         })
         cy.visit("https://todo.qacart.com/todo")

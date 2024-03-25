@@ -25,9 +25,11 @@ describe('Mock QA Kart', () => {
         cy.request({
             method: 'DELETE',
             url: 'https://todo.qacart.com/api/v1/tasks/' + taskID,
-            body: { item: "123442134", isCompleted: true },
+            body: { isCompleted: false, _id: taskID, item: "this one?" },
             headers: { Authorization: `Bearer ${access_token}` }
-        });
+        }).then((request) => {
+            expect(request.status).to.eq(200)
+        })
     });
     it('Mock qa cart empty', () => {
         cy.intercept("GET", "https://todo.qacart.com/api/v1/tasks", {
@@ -43,4 +45,4 @@ describe('Mock QA Kart', () => {
         cy.visit("https://todo.qacart.com/todo")
         cy.get('.sc-breuTD.dIVhJd').should('have.length', 4)
     });
-})
+});
