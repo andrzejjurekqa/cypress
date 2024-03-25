@@ -1,6 +1,10 @@
 describe('QA KART api', () => {
     let access_token;
     let taskID;
+
+    let reqBody = { item: "123442134", isCompleted: false }
+    let reqTrue = { item: "123442134", isCompleted: true }
+
     it('logs in to application', () => {
         cy.request({
             method: 'POST',
@@ -20,7 +24,7 @@ describe('QA KART api', () => {
         })
     })
     it('check custom command creates a task', () => {
-        cy.sendRequest('POST', Cypress.env('url2'), access_token, { item: "123442134", isCompleted: false })
+        cy.sendRequest('POST', Cypress.env('url2'), access_token, reqBody)
         .then((request) => {
             expect(request.status).to.eq(201)
             expect(request.body.item).to.eq('123442134')
@@ -28,14 +32,14 @@ describe('QA KART api', () => {
         })
     })
     it('check custom command edits a task', () => {
-        cy.sendRequest('PUT', Cypress.env('url2') + taskID, access_token, { item: "123442134", isCompleted: true })
+        cy.sendRequest('PUT', Cypress.env('url2') + taskID, access_token, reqTrue)
         .then((request) => {
             expect(request.status).to.eq(200)
             expect(request.body.item).to.eq('123442134')
         })
     })
     it('check custom command deletes a task', () => {
-        cy.sendRequest('DELETE', Cypress.env('url2') + taskID, access_token, { item: "123442134", isCompleted: true })
+        cy.sendRequest('DELETE', Cypress.env('url2') + taskID, access_token, reqTrue)
         .then((request) => {
             expect(request.status).to.eq(200)
             expect(request.body.item).to.eq('123442134')
