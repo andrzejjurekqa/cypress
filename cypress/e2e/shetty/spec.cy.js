@@ -1,6 +1,6 @@
-import HomePage from '../POM/HomePage';
-import ShopPage from '../POM/ShopPage';
-import CheckoutPage from '../POM/CheckoutPage';
+import HomePage from '../../POM/HomePage';
+import ShopPage from '../../POM/ShopPage';
+import CheckoutPage from '../../POM/CheckoutPage';
 
 describe('template spec', () => {
   beforeEach(function () {
