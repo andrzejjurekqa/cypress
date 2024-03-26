@@ -17,6 +17,7 @@
     "neat-csv": "^7.0.0"
   },
   "dependencies": {
+    "convert-excel-to-json": "^1.7.0",
     "cypress-iframe": "^1.0.1",
     "webpack": "^5.91.0"
   }
