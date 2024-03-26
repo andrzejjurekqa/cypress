@@ -26,6 +26,23 @@ Cypress.Commands.add('sendRequest', (method, url, access_token, body) => {
     })
 })
 
+Cypress.Commands.add('apiLogin', () =>{
+    let email = "anshika@gmail.com";
+    let email2;
+    cy.request('POST', 'https://rahulshettyacademy.com/api/ecom/auth/login',
+    {
+        userEmail: email, userPassword: "Iamking@000"
+        }).then((request) => {
+            expect(request.status).to.eq(200)
+            email2 = email.split('@')[0];
+            Cypress.env('userEmail', email2);
+            console.log(Cypress.env('userEmail'))
+        }).then((response) => {
+            expect(response.status).to.eq(200)
+            Cypress.env('token', response.body.token);
+    })
+})
+
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
 //
